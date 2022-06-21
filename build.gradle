@@ -22,12 +22,6 @@ dependencies {
     implementation gradleApi()
 }
 
-publishing { 
-  repositories {
-      mavenLocal()
-  }
-}
-
 pluginBundle {
     website = 'https://github.com/hlangjian/gradleWebappPlugin'
     vcsUrl = 'https://github.com/hlangjian/gradleWebappPlugin.git'
