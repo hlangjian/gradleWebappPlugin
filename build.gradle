@@ -13,7 +13,7 @@ gradlePlugin {
             id = 'io.github.hlangjian.webapp'
             implementationClass = 'io.github.hlangjian.WebappPlugin'
             displayName = 'Webapp Plugin'
-            description = 'Webapp Plugin'
+            description = 'Build and bundle frontend in Java project'
         }
     }
 }
