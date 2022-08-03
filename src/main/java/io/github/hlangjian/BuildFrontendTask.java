@@ -19,12 +19,19 @@ public abstract class BuildFrontendTask extends DefaultTask {
 
   @TaskAction
   public void action() {
-    getProject().exec(task -> {
-      boolean isWindows = OperatingSystem.current().isWindows();
-      String interpreter = isWindows? "cmd.exe" : "bash";
-      String arg = isWindows? "/c" : "-c";
-      task.commandLine(interpreter, arg, getBuildCommand().getOrElse("npm install && npm run build"));
-      task.workingDir(getAppDir().getOrElse("src/main/webapp"));
-    });
+    getProject()
+      .exec(
+        task -> {
+          boolean isWindows = OperatingSystem.current().isWindows();
+          String interpreter = isWindows ? "cmd.exe" : "bash";
+          String arg = isWindows ? "/c" : "-c";
+          task.commandLine(
+            interpreter,
+            arg,
+            getBuildCommand().getOrElse("npm run build")
+          );
+          task.workingDir(getAppDir().getOrElse("src/main/webapp"));
+        }
+      );
   }
 }
