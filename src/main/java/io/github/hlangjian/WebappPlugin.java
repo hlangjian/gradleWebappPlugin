@@ -12,7 +12,7 @@ public class WebappPlugin implements Plugin<Project> {
       .getExtensions()
       .create("webapp", WebappPluginExtension.class);
     TaskContainer tasks = project.getTasks();
-    
+
     tasks.register(
       "buildWebapp",
       BuildFrontendTask.class,
@@ -30,10 +30,7 @@ public class WebappPlugin implements Plugin<Project> {
         task.getIncludePatterns().set(extension.getInclude());
       }
     );
-    tasks
-      .getByName("bundleWebapp")
-      .dependsOn("buildWebapp")
-      .dependsOn("processResources");
+    tasks.getByName("bundleWebapp").dependsOn("buildWebapp");
     tasks.getByName("jar").dependsOn("bundleWebapp");
     tasks.getByName("test").dependsOn("bundleWebapp");
     tasks.getByName("compileTestJava").dependsOn("bundleWebapp");
