@@ -32,7 +32,5 @@ public class WebappPlugin implements Plugin<Project> {
     );
     tasks.getByName("bundleWebapp").dependsOn("buildWebapp");
     tasks.getByName("jar").dependsOn("bundleWebapp");
-    tasks.getByName("test").dependsOn("bundleWebapp");
-    tasks.getByName("compileTestJava").dependsOn("bundleWebapp");
   }
 }
